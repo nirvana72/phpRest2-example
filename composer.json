@@ -1,0 +1,21 @@
+{
+  "name": "nirvana72/phprest2-demo",
+  "description": "how to use",
+  "autoload": {
+      "psr-4": {
+          "App\\": "App/"
+      },
+      "files": [
+          "App/functions.php"
+      ]
+  },
+  "authors": [
+      {
+          "name": "nijia"
+      }
+  ],
+  "require": {
+      "php": ">=8.2",
+      "nirvana72/phprest2": "^1.0"
+  }
+}
