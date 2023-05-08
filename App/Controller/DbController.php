@@ -36,7 +36,6 @@ class DbController
      * select 1
      **************************************************************************************/
     #[Action('GET:/find/{userId}')]
-    #[Summary('getById')]
     public function getById(int $userId) 
     {
         $row = $this->db->get('t_user', '*', ['user_id' => $userId]);
@@ -50,7 +49,6 @@ class DbController
      * select list
      **************************************************************************************/
     #[Action('GET:/list')]
-    #[Summary('getList')]
     public function getList(int $page = 1, int $limit = 10) 
     {        
         $start = ($page-1) * $limit;
@@ -63,7 +61,6 @@ class DbController
      * insert
      **************************************************************************************/
     #[Action('POST:/')]
-    #[Summary('create')]
     #[Param(name: 'account',  rule: 'slug')]
     #[Param(name: 'phone',    rule: '/^1[3456789]\d{9}$/')]
     #[Param(name: 'password', rule: 'lengthBetween=6,20')]
@@ -90,7 +87,6 @@ class DbController
      * update
      **************************************************************************************/
     #[Action('PUT:/')]
-    #[Summary('update')]
     #[Param(name: 'phone', rule: '/^1[3456789]\d{9}$/')]
     public function update(int $userId, string $nickName, string $phone) 
     { 
@@ -105,7 +101,6 @@ class DbController
      * delete
      **************************************************************************************/
     #[Action('DELETE:/{userId}')]
-    #[Summary('delete')]
     public function delete(int $userId) 
     { 
         $res = $this->db->delete('t_user', ['user_id' => $userId]);
