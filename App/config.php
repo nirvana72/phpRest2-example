@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 use Symfony\Component\HttpFoundation\Response;
 use PhpRest2\Exception\ExceptionHandlerInterface;
-use PhpRest2\Database\Medoo;
+use Medoo\Medoo;
 use PhpRest2\Utils\EnvHelper as Env;
 
 // 加载环境变量

@@ -8,16 +8,17 @@ require __DIR__.'/../vendor/autoload.php';
 
 use PhpRest2\Application;
 
-// 创建APP对象
+// 创建APP对象 fileCachePath 为是否使用文件缓存，具体请移步查看源码
+// $app = Application::create(config: __DIR__.'/../App/config.php', fileCachePath: __DIR__.'/../cache');
 $app = Application::create(config: __DIR__.'/../App/config.php');
 
-// 全局HOOK
+// [可选] 全局HOOK
 // $app->addGlobalHook(classPath: '\App\Hook\GlobalHook');
 
 // 加载路由
 $app->scanRoutesFromPath(path: __DIR__.'/../App/Controller', namespace: 'App\Controller');
 
-// 加载事件驱动 (如末使用事件驱动功能模块， 可删除)
+// [可选] 加载事件驱动
 $app->scanListenerFromPath(path: __DIR__.'/../App/Event', namespace: 'App\Event');
 
 // 解析请求

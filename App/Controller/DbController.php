@@ -23,7 +23,7 @@ namespace App\Controller;
 
 use PhpRest2\Controller\Attribute\{Controller, Action, Summary, Param};
 use PhpRest2\ApiResult;
-use PhpRest2\Database\Medoo;
+use Medoo\Medoo;
 use DI\Attribute\Inject;
 
 #[Controller('/db')]
@@ -79,7 +79,7 @@ class DbController
         if ($res->rowCount() !== 1) return ApiResult::error('添加失败');
 
         // https://www.php.net/manual/zh/pdo.lastinsertid.php
-        $autoId = $this->db->getAutoId();        
+        $autoId = $this->db->id();        
         return ApiResult::success("autoId = {$autoId}");
     }
 
