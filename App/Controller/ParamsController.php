@@ -120,4 +120,21 @@ class ParamsController
             'ary3' => $ary3,
         ]);
     }
+
+    /***************************************************************************************
+     * Request: https://symfony.com/doc/current/components/http_foundation.html#request
+     **************************************************************************************/
+    #[Action('POST:/demo6')]
+    #[Summary('直接绑定request')]
+    public function demo6(Request $request) 
+    {
+        $p1 = $request->request->get('p1');
+        $p2 = $request->request->get('p2');
+        $p3 = $request->query->get('p3');
+        return ApiResult::success([
+            'p1' => $p1,
+            'p2' => $p2,
+            'p3' => $p3,
+        ]);
+    }
 }
